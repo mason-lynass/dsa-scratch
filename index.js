@@ -159,10 +159,14 @@ function findFactorialIterative(number) {
 }
 
 function fibIterative(n) {
-
+    let array = [0, 1]
+    for (let i = 2; i < n + 1; i++) {
+        array.push(array[i-2] + array[i-1])
+    }
+    console.log(array[n])
 }
 
-fibIterative(5)
+fibIterative(13)
 
 function fibRecursive(n) {
     if (n < 2) {
