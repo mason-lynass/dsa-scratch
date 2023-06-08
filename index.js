@@ -141,3 +141,32 @@ class Graph {
 //  myGraph.addEdge('6', '5')
 
 //  myGraph.showConnections();
+
+function findFactorialRecursive(number) {
+    if (number === 2) return 2 
+    return number * findFactorialRecursive(number - 1)
+}
+
+function findFactorialIterative(number) {
+    let answer = 1
+    if (number < 0) return 0
+    if (number === 1) return 1 
+    for (let i = 2; i <= number; i++) {
+        answer = answer * i
+        console.log(answer, i)
+    }
+    console.log(answer)
+}
+
+function fibIterative(n) {
+
+}
+
+fibIterative(5)
+
+function fibRecursive(n) {
+    if (n < 2) {
+        return n
+    }
+    return fibRecursive(n - 1) + fibRecursive (n - 2)
+}
