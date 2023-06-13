@@ -101,7 +101,7 @@ class Graph {
         this.numberOfNodes = 0;
         this.adjacentList = {};
     }
-    addVertex(node){
+    addVertex(node) {
         this.adjacentList[node] = [];
         this.numberOfNodes++
     }
@@ -121,7 +121,7 @@ class Graph {
             console.log(node + '-->' + connections)
         }
     }
- }
+}
 
 //  const myGraph = new Graph();
 //  myGraph.addVertex('0')
@@ -143,14 +143,14 @@ class Graph {
 //  myGraph.showConnections();
 
 function findFactorialRecursive(number) {
-    if (number === 2) return 2 
+    if (number === 2) return 2
     return number * findFactorialRecursive(number - 1)
 }
 
 function findFactorialIterative(number) {
     let answer = 1
     if (number < 0) return 0
-    if (number === 1) return 1 
+    if (number === 1) return 1
     for (let i = 2; i <= number; i++) {
         answer = answer * i
         console.log(answer, i)
@@ -161,7 +161,7 @@ function findFactorialIterative(number) {
 function fibIterative(n) {
     let array = [0, 1]
     for (let i = 2; i < n + 1; i++) {
-        array.push(array[i-2] + array[i-1])
+        array.push(array[i - 2] + array[i - 1])
     }
     console.log(array[n])
 }
@@ -172,5 +172,43 @@ function fibRecursive(n) {
     if (n < 2) {
         return n
     }
-    return fibRecursive(n - 1) + fibRecursive (n - 2)
+    return fibRecursive(n - 1) + fibRecursive(n - 2)
+}
+
+// sorting 
+
+function selectionSort(numbers) {
+    const length = numbers.length
+    for (let i = 0; i < length; i++) {
+        // set current index as minimum
+        let temp = numbers[i]
+        let min = i
+        for (let j = i + 1; j < length; j++) {
+            if (numbers[j] < numbers[min]) {
+                min = j
+            }
+        }
+        numbers[i] = numbers[min]
+        numbers[min] = temp
+    }
+    return numbers
+}
+
+// for when you think it's mostly sorted
+function insertionSort(numbers) {
+    const length = numbers.length
+    for (let i = 0; i < length; i++) {
+        if (numbers[i] < numbers[0]) {
+            // move number to first position
+            numbers.unshift(numbers.splice(i, 1)[0])
+        } else {
+            // find where the number should go
+            for (let j = 1; j < 1; j++) {
+                if (numbers[i] > numbers[j - 1] && numbers[i] < numbers[j]) {
+                    // move number to the right spot
+                    numbers.splice(j, 0, numbers.splice(i, 1)[0])
+                }
+            }
+        }
+    }
 }
